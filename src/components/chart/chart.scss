@@ -1,0 +1,19 @@
+.chart {
+    &-icon {
+        display: inline-block;
+        height: 20px;
+        width:20px;
+        background:url('./images/ann.png') center no-repeat;
+        background-size: cover;
+        vertical-align: middle;
+    }
+    &-icon2 {
+        display: inline-block;
+        height: 30px;
+        width:30px;
+        background:url('./images/bear.png') center no-repeat;
+        background-size: cover;
+        vertical-align: middle;
+    }
+
+}

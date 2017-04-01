@@ -1,0 +1,21 @@
+.login {
+    text-align: center;
+    &-title {
+        color: blue;
+        font-size: 38px;
+    }
+    &-icon {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background: url('./images/ann.png') center no-repeat;
+        background-size: cover;
+    }
+    &-share {
+        display: inline-block;
+        height: 20px;
+        width: 20px;
+        background: url('./images/share.png') center no-repeat;
+        background-size: cover;
+    }
+}
