@@ -28,7 +28,7 @@ export default class Login extends Component {
                 <div>
                     <span>username:</span>
                     <input
-                        type='text'
+                        type="text"
                         onChange={event => this.setState({ username: event.target.value })}
                         value={this.state.username}
                     />
@@ -36,7 +36,7 @@ export default class Login extends Component {
                 <div>
                     <span>password:</span>
                     <input
-                        type='password'
+                        type="password"
                         onChange={event => this.setState({ password: event.target.value })}
                         value={this.state.password}
                     />

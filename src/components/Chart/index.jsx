@@ -4,7 +4,7 @@ import React, {
 
 import FontAwesome from 'react-fontawesome';
 
-import './chart.scss';
+import './index.scss';
 
 export default class Chart extends Component {
     constructor(props) {
@@ -24,15 +24,15 @@ export default class Chart extends Component {
         return (
             <div>
                 <div>
-                    <span className='chart-icon' />
+                    <span className="chart-icon" />
                     [{chartMsg}]
-                    <span className='chart-icon2' />
+                    <span className="chart-icon2" />
                 </div>
                 <div>
-                    <FontAwesome name='rocket' />
+                    <FontAwesome name="rocket" />
                     <input
                         style={{ border: '1px solid #f00' }}
-                        type='text'
+                        type="text"
                         onChange={event => changeChartMsg(event.target.value)}
                         value={chartMsg}
                     />
