@@ -9,7 +9,6 @@
         "indent": [2, 4, {"SwitchCase": 1}], //缩进空格改为四个
         "react/jsx-indent": [2, 4], //jsx缩进空格改为4个
         "no-var": 0,
-        "jsx-quotes": [2, "prefer-single"], //使用单引号
         'react/prop-types': ['off', { ignore: [], customValidators: [] }], //关掉组件的proptype验证【需要的时候开启】
         'react/jsx-indent-props': ['error', 4],      //react jsx缩进空格改为四个
         'react/prefer-stateless-function': 'off'  //redux 会为container绑定state，所以去掉这条
@@ -28,3 +27,11 @@
         "webpackIsomorphicTools": true
     }
 }
+
+/**
+ * 参考资料
+ * airbnb react编程规范
+ *  -https://github.com/JasonBoy/javascript/tree/master/react
+ * airbnb es6编程规范
+ *  -https://github.com/yuche/javascript
+ */

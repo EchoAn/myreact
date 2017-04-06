@@ -10,8 +10,8 @@ import {
     connect,
 } from 'react-redux';
 
-import './loginApp.scss';
-import Login from '../../components/login/Login';
+import './index.scss';
+import Login from '../../components/Login';
 
 import * as loginActions from '../../actions/loginActions';
 
@@ -24,11 +24,11 @@ class LoginApp extends Component {
         } = this.props;
 
         return (
-            <div className='login'>
-                <header className='login-title'>
-                    <i className='login-share' />
+            <div className="login">
+                <header className="login-title">
+                    <i className="login-share" />
                     登录
-                    <i className='login-icon' />
+                    <i className="login-icon" />
                 </header>
                 <Login
                     loginFlag={state.loginFlag}

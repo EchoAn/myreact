@@ -25,7 +25,7 @@ export default class Login extends Component {
         const isFetching = this.props.isFetching;
         return (
             <div>
-                <div>
+                <div className="username">
                     <span>username:</span>
                     <input
                         type="text"

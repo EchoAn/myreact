@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import HomeApp from './HomeApp';
-import LoginApp from './login/LoginApp';
+import LoginApp from './LoginApp';
 
 /* eslint-disable */
 import loadChartApp from 'bundle-loader?lazy!../containers/ChartApp';
@@ -30,9 +30,9 @@ export default class RouterApp extends Component {
             <div>
                 <Router>
                     <div>
-                        <Route exact path='/' component={HomeApp} />
-                        <Route path='/chart' component={ChartApp} />
-                        <Route path='/login' component={LoginApp} />
+                        <Route exact path="/" component={HomeApp} />
+                        <Route path="/chart" component={ChartApp} />
+                        <Route path="/login" component={LoginApp} />
                     </div>
                 </Router>
             </div>

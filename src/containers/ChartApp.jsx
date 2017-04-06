@@ -10,7 +10,7 @@ import {
     connect,
 } from 'react-redux';
 
-import Chart from '../components/chart/Chart';
+import Chart from '../components/Chart';
 import chartActions from '../actions/chartActions';
 
 class ChartApp extends Component {

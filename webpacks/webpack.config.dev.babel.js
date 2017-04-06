@@ -6,7 +6,7 @@ import objectAssignDeep from 'object-assign-deep';
 
 import webpackCommonConfig from './webpack.config.common.babel.js';
 
-const webpackDevConfig =  {
+const webpackDevConfig = {
     entry: {
         index: [
             // 开启react代码的模块热替换（HMR）
@@ -60,9 +60,8 @@ const webpackDevConfig =  {
         new webpack.HotModuleReplacementPlugin(),
         // 当模块热替换（HMR）时在浏览器控制台输出对用户更友好的模块名字信息
         new webpack.NamedModulesPlugin(),
-    ]
-}
+    ],
+};
 const webpackConfig = objectAssignDeep({}, webpackCommonConfig, webpackDevConfig);
 
 export default webpackConfig;
-
