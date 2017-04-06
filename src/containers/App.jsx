@@ -1,26 +1,26 @@
 import React, {
-    Component
-} from 'react'
+    Component,
+} from 'react';
 
 import {
     createStore,
     applyMiddleware,
-    combineReducers
-} from 'redux'
+    combineReducers,
+} from 'redux';
 
 import {
-    Provider
-} from 'react-redux'
+    Provider,
+} from 'react-redux';
 
-import thunk from 'redux-thunk'
-
-import * as reducers from '../reducers'
-import Root from './Root'
+import thunk from 'redux-thunk';
+import * as reducers from '../reducers';
+import Root from './Root';
 
 const createStoreWithMiddleware = applyMiddleware(thunk)(createStore);
 const reducer = combineReducers(reducers);
 const store = createStoreWithMiddleware(reducer);
 
+/* eslint-disable */
 export default class App extends Component {
     render() {
         return (
@@ -30,3 +30,4 @@ export default class App extends Component {
         );
     }
 }
+/* eslint-enable */

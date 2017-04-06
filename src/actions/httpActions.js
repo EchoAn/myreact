@@ -1,23 +1,30 @@
 import {
-	ISFETCHING,
-	ISFETCHED,
-	ISFETCHFAIL,
+    ISFETCHING,
+    ISFETCHED,
+    ISFETCHFAIL,
 } from './actionTypes';
-export function isFetching() {
-	return {
-		type: ISFETCHING
-	};
+
+function isFetching() {
+    return {
+        type: ISFETCHING,
+    };
 }
 
-export function isFetched() {
-	return {
-		type: ISFETCHED
-	};
+function isFetched() {
+    return {
+        type: ISFETCHED,
+    };
 }
 
-export function isFetchFail(msg) {
-	return {
-		type: ISFETCHFAIL,
-		num: msg,
-	};
+function isFetchFail(msg) {
+    return {
+        type: ISFETCHFAIL,
+        num: msg,
+    };
 }
+
+export {
+    isFetching,
+    isFetched,
+    isFetchFail,
+};

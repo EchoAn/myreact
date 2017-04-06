@@ -73,7 +73,13 @@ export default {
             test: /\.jsx?$/,
             exclude: /node_modules/,
             use: [
-                'babel-loader',
+                'babel-loader'
+            ],
+        }, {
+            test: /\.jsx?$/,
+            enforce: 'pre',
+            exclude: /node_modules/,
+            use: [
                 'eslint-loader'
             ],
         }]

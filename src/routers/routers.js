@@ -3,7 +3,7 @@ import ChartApp from '../containers/ChartApp';
 
 export default [{
     path: '/',
-    component: HomeApp
+    component: HomeApp,
 }, {
     path: '/chart',
     component: ChartApp,

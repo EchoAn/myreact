@@ -1,39 +1,30 @@
-{ "extends": "eslint-config-airbnb",
-  "env": {
-    "browser": true,
-    "node": true,
-    "mocha": true
-  },
-  "rules": {
-    "new-cap": [2, { "capIsNewExceptions": ["List", "Map", "Set"] }],
-    "react/no-multi-comp": 0,
-    "import/default": 0,
-    "import/no-duplicates": 0,
-    "import/named": 0,
-    "import/namespace": 0,
-    "import/no-unresolved": 0,
-    "import/no-named-as-default": 2,
-    "comma-dangle": 0,  // not sure why airbnb turned this on. gross!
-    "indent": [2, 2, {"SwitchCase": 1}],
-    "no-console": 0,
-    "no-alert": 0
-  },
-  "plugins": [
-    "react", "import"
-  ],
-  "settings": {
-    "import/parser": "babel-eslint",
-    "import/resolve": {
-      "moduleDirectory": ["node_modules", "src"]
+{
+    "extends": "eslint-config-airbnb",
+    "env": {
+        "browser": true,
+        "node": true,
+        "mocha": true
+    },
+    "rules": {
+        "indent": [2, 4, {"SwitchCase": 1}], //缩进空格改为四个
+        "react/jsx-indent": [2, 4], //jsx缩进空格改为4个
+        "no-var": 0,
+        "jsx-quotes": [2, "prefer-single"], //使用单引号
+        'react/prop-types': ['off', { ignore: [], customValidators: [] }], //关掉组件的proptype验证【需要的时候开启】
+        'react/jsx-indent-props': ['error', 4],      //react jsx缩进空格改为四个
+        'react/prefer-stateless-function': 'off'  //redux 会为container绑定state，所以去掉这条
+    },
+    "plugins": [
+        "react",
+        "import"
+    ],
+    "globals": {
+        "__DEVELOPMENT__": true,
+        "__CLIENT__": true,
+        "__SERVER__": true,
+        "__DISABLE_SSR__": true,
+        "__DEVTOOLS__": true,
+        "socket": true,
+        "webpackIsomorphicTools": true
     }
-  },
-  "globals": {
-    "__DEVELOPMENT__": true,
-    "__CLIENT__": true,
-    "__SERVER__": true,
-    "__DISABLE_SSR__": true,
-    "__DEVTOOLS__": true,
-    "socket": true,
-    "webpackIsomorphicTools": true
-  }
 }

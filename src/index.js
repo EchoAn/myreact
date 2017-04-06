@@ -1,4 +1,3 @@
-'use strict';
 import 'font-awesome/scss/font-awesome.scss';
 
 import React from 'react';
@@ -8,19 +7,21 @@ import ReactDom from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './containers/App';
 
-const render = (Component) => {
+const render = () => {
     ReactDom.render(
+        /* eslint-disable */
         <AppContainer>
-            <App></App>
+            <App />
         </AppContainer>,
-        document.getElementById('app')
+        /* eslint-enable */
+        document.getElementById('app'),
     );
-}
+};
 
 render(App);
 
 if (module.hot) {
     module.hot.accept('./containers/App', () => {
-        render(App)
+        render(App);
     });
 }

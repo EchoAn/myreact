@@ -10,7 +10,7 @@ import webpackCommonConfig from './webpack.config.common.babel.js';
 
 const webpackProConfig = {
     entry: {
-        index: './src/index.js',
+        index: './src/index.jsx',
     },
     output: {
         // 输出的打包文件，chunkhash与hot-loader不兼容

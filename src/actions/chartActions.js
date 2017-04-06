@@ -1,10 +1,14 @@
 import {
-	CHANGECHATMSG
-} from './actionTypes'
+    CHANGECHATMSG,
+} from './actionTypes';
 
-export function changeChartMsg(msg) {
-	return {
-		type: CHANGECHATMSG,
-		msg: msg,
-	};
+function changeChartMsg(msg) {
+    return {
+        type: CHANGECHATMSG,
+        msg,
+    };
 }
+
+export default {
+    changeChartMsg,
+};

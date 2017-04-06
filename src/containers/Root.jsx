@@ -1,33 +1,38 @@
 import React, {
-    Component
+    Component,
 } from 'react';
 import {
     BrowserRouter as Router,
-    Route
+    Route,
 } from 'react-router-dom';
 
-import HomeApp from '../containers/HomeApp';
-import loadChartApp from 'bundle-loader?lazy!../containers/ChartApp';
+import HomeApp from './HomeApp';
+import LoginApp from './login/LoginApp';
 
-import Bundle from '../routers/Bundle';
+/* eslint-disable */
+import loadChartApp from 'bundle-loader?lazy!../containers/ChartApp';
+/* eslint-enable */
+
+import Bundle from '../routers/bundle';
 
 const ChartApp = () => (
     <Bundle load={loadChartApp}>
-        {(ChartApp) => <ChartApp/>}
+        {App => <App />}
     </Bundle>
-)
+);
 
 export default class RouterApp extends Component {
     componentDidMount() {
-        loadChartApp(() => {})
+        loadChartApp(() => {});
     }
     render() {
         return (
             <div>
                 <Router>
                     <div>
-                        <Route exact path="/" component={HomeApp}/>
-                        <Route path="/chart" component={ChartApp}/>
+                        <Route exact path='/' component={HomeApp} />
+                        <Route path='/chart' component={ChartApp} />
+                        <Route path='/login' component={LoginApp} />
                     </div>
                 </Router>
             </div>
