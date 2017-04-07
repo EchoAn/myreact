@@ -1,5 +1,7 @@
 {
     "extends": "eslint-config-airbnb",
+    // ESLint doesn't natively support experimental ECMAScript language features.
+    "parser": "babel-eslint",
     "env": {
         "browser": true,
         "node": true,

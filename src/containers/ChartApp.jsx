@@ -10,10 +10,24 @@ import {
     connect,
 } from 'react-redux';
 
+import {
+    withRouter,
+} from 'react-router-dom';
+
 import Chart from '../components/Chart';
 import chartActions from '../actions/chartActions';
 
-class ChartApp extends Component {
+// 懒加载需要手动绑定router相关信息
+@withRouter
+@connect(
+    state => ({
+        state: state.chart,
+    }),
+    dispatch => ({
+        actions: bindActionCreators(chartActions, dispatch),
+    }),
+)
+export default class ChartApp extends Component {
     render() {
         const {
             state,
@@ -27,11 +41,3 @@ class ChartApp extends Component {
         );
     }
 }
-
-export default connect(state => ({
-    state: state.chart,
-}),
-dispatch => ({
-    actions: bindActionCreators(chartActions, dispatch),
-}),
-)(ChartApp);

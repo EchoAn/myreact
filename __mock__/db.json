@@ -1,5 +1,6 @@
 {
     "login": {
-        "success": true
+        "username": "aaa",
+        "password": "bbb"
     }
 }
