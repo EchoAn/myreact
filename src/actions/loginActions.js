@@ -26,12 +26,13 @@ function loginFailure(msg) {
 function userLogin() {
     return (dispatch) => {
         dispatch(isFetching());
-        return fetch('/login')
+        return fetch('/gf/api/login')
             .then(response => response.json())
-            .then(() => {
+            .then((response) => {
                 dispatch(isFetched());
                 dispatch(loginSucess());
-                alert('登录成功');
+                console.log(response);
+                alert(`登录成功:${response.success}`);
             })
             .catch(() => {
                 dispatch(isFetched());

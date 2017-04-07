@@ -3,6 +3,7 @@ import {
 } from 'path';
 import webpack from 'webpack';
 import objectAssignDeep from 'object-assign-deep';
+import 'babel-polyfill';
 
 import webpackCommonConfig from './webpack.config.common.babel';
 
@@ -46,6 +47,16 @@ const webpackDevConfig = {
         // 单页应用请求404时会定位到index.html
         historyApiFallback: true,
         noInfo: true,
+        inline: true,
+        quiet: true,
+
+        // mock数据代理
+        proxy: {
+            '/gf/api/*': {
+                target: 'http://localhost:9090',
+                secure: false,
+            },
+        },
     },
     devtool: 'inline-source-map',
     module: {

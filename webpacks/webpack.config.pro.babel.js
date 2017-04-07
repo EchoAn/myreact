@@ -3,7 +3,7 @@ import {
     join,
 } from 'path';
 import objectAssignDeep from 'object-assign-deep';
-
+import 'babel-polyfill';
 
 import webpackCommonConfig from './webpack.config.common.babel';
 
