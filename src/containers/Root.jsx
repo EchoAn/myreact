@@ -13,7 +13,7 @@ import LoginApp from './LoginApp';
 import loadChartApp from 'bundle-loader?lazy!../containers/ChartApp';
 /* eslint-enable */
 
-import Bundle from '../routers/bundle';
+import Bundle from '../bundle';
 
 const ChartApp = () => (
     <Bundle load={loadChartApp}>

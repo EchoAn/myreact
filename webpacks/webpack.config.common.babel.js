@@ -7,7 +7,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 const NODE_ENV = process.env.NODE_ENV || 'development';
 console.log('当前运行环境：', NODE_ENV);
 
-// 公共css文件提取
+// 公共css文件提取 , 只会将第一层的css文件抽取出来
 const ExtractTextPluginCss = new ExtractTextPlugin({
     filename: 'styles/style.[contenthash:8].css',
 });
@@ -27,8 +27,16 @@ const CommonsChunkPlugin = new webpack.optimize.CommonsChunkPlugin({
 
 export default {
     entry: {
-        'libs-main': ['redux', 'react-redux', 'redux-thunk', 'react-router-dom', 'react-fontawesome'],
-        'libs-react': ['react', 'react-dom'],
+        'libs-main': [
+            'redux',
+            'react-redux',
+            'redux-thunk',
+            'react-router-dom',
+        ],
+        'libs-react': [
+            'react',
+            'react-dom',
+        ],
     },
     resolve: {
         extensions: ['.js', '.jsx', '.scss', 'css'],

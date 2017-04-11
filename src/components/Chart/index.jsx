@@ -2,8 +2,6 @@ import React, {
     Component,
 } from 'react';
 
-import FontAwesome from 'react-fontawesome';
-
 import './index.scss';
 
 export default class Chart extends Component {
@@ -29,7 +27,6 @@ export default class Chart extends Component {
                     <span className="chart-icon2" />
                 </div>
                 <div>
-                    <FontAwesome name="rocket" />
                     <input
                         style={{ border: '1px solid #f00' }}
                         type="text"
