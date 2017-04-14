@@ -1,4 +1,4 @@
-import fetch from 'isomorphic-fetch';
+import http from '../utils/Http';
 
 import {
     LOGINSUCESS,
@@ -26,8 +26,11 @@ function loginFailure(msg) {
 function userLogin(username, password, history) {
     return (dispatch) => {
         dispatch(isFetching());
-        return fetch('/gf/api/login')
-            .then(response => response.json())
+        // const params = {
+        //     username,
+        //     password,
+        // };
+        return http.login.post()
             .then((response) => {
                 dispatch(isFetched());
                 if (response.username === username && response.password === password) {
