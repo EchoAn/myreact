@@ -4,10 +4,12 @@ import React, {
 import {
     BrowserRouter as Router,
     Route,
+    Switch,
 } from 'react-router-dom';
 
 import HomeApp from './HomeApp';
 import LoginApp from './LoginApp';
+import NotFound from './NotFound';
 
 /* eslint-disable */
 import loadChartApp from 'bundle-loader?lazy!../containers/ChartApp';
@@ -29,11 +31,12 @@ export default class RouterApp extends Component {
         return (
             <div>
                 <Router>
-                    <div>
+                    <Switch>
                         <Route exact path="/" component={HomeApp} />
                         <Route path="/chart" component={ChartApp} />
                         <Route path="/login" component={LoginApp} />
-                    </div>
+                        <Route component={NotFound} />
+                    </Switch>
                 </Router>
             </div>
         );
