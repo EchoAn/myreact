@@ -11,7 +11,6 @@
         "indent": [2, 4, {"SwitchCase": 1}], //缩进空格改为四个
         "react/jsx-indent": [2, 4], //jsx缩进空格改为4个
         "no-var": 0,
-        'react/prop-types': ['off', { ignore: [], customValidators: [] }], //关掉组件的proptype验证【需要的时候开启】
         'react/jsx-indent-props': ['error', 4],      //react jsx缩进空格改为四个
         'react/prefer-stateless-function': 'off'  //redux 会为container绑定state，所以去掉这条
     },

@@ -2,7 +2,19 @@ import React, {
     Component,
 } from 'react';
 
+import PropTypes from 'prop-types';
+
 export default class Login extends Component {
+
+    static propTypes = {
+        isFetching: PropTypes.bool,
+        userLogin: PropTypes.func,
+    }
+
+    static defaultProps = {
+        isFetching: false,
+        userLogin: () => {},
+    }
     constructor(props) {
         super(props);
         this.state = {
@@ -15,7 +27,7 @@ export default class Login extends Component {
     login() {
         const {
             userLogin,
-            history,
+            history, // eslint-disable-line
         } = this.props;
         const username = this.state.username;
         const password = this.state.password;
@@ -23,7 +35,7 @@ export default class Login extends Component {
     }
 
     render() {
-        const isFetching = this.props.isFetching;
+        const { isFetching } = this.props;
         return (
             <div>
                 <div className="username">

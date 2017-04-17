@@ -10,6 +10,8 @@ import {
     connect,
 } from 'react-redux';
 
+import PropTypes from 'prop-types';
+
 import {
     withRouter,
 } from 'react-router-dom';
@@ -28,6 +30,25 @@ import chartActions from '../actions/chartActions';
     }),
 )
 export default class ChartApp extends Component {
+
+    static propTypes = {
+        state: PropTypes.shape({
+            chartMsg: PropTypes.string,
+        }),
+        actions: PropTypes.shape({
+            changeChartMsg: PropTypes.func,
+        }),
+    }
+
+    static defaultProps = {
+        state: {
+            chartMsg: '',
+        },
+        actions: PropTypes.shape({
+            changeChartMsg: () => {},
+        }),
+    }
+
     render() {
         const {
             state,

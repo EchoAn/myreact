@@ -10,6 +10,7 @@ import {
     connect,
 } from 'react-redux';
 
+import PropTypes from 'prop-types';
 
 import './index.scss';
 import Login from '../../components/Login';
@@ -25,11 +26,40 @@ import * as loginActions from '../../actions/loginActions';
     }),
 )
 export default class LoginApp extends Component {
+
+    static propTypes = {
+        state: PropTypes.shape({
+            loginFlag: PropTypes.bool,
+            loginMsg: PropTypes.string,
+            isFetching: PropTypes.bool,
+            reponseErrMsg: PropTypes.string,
+        }),
+        actions: PropTypes.shape({
+            loginSucess: PropTypes.func,
+            loginFailure: PropTypes.func,
+            userLogin: PropTypes.func,
+        }),
+    }
+
+    static defaultProps = {
+        state: {
+            loginFlag: '',
+            loginMsg: '',
+            isFetching: false,
+            reponseErrMsg: '',
+        },
+        actions: PropTypes.shape({
+            loginSucess: () => {},
+            loginFailure: () => {},
+            userLogin: () => {},
+        }),
+    }
+
     render() {
         const {
             state,
             actions,
-            history,
+            history, // eslint-disable-line
         } = this.props;
         return (
             <div className="login">

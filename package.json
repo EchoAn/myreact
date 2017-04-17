@@ -6,8 +6,9 @@
   "scripts": {
     "clean": "rimraf dist",
     "server": "webpack-dev-server --config ./webpacks/webpack.config.dev.babel.js ",
+    "mserver": "export SERVER_ENV=mock && npm run server",
     "mock": "node_modules/.bin/json-server -w __mock__/index.js -p 9090",
-    "mockserver": "npm run mock & npm run server",
+    "mockserver": "npm run mock & npm run mserver",
     "build": "export NODE_ENV=production && npm run clean && webpack -p --progress --profile --colors --config ./webpacks/webpack.config.pro.babel.js"
   },
   "keywords": [
@@ -41,6 +42,7 @@
     "normalize.css": "^6.0.0",
     "object-assign-deep": "^0.0.4",
     "postcss-loader": "^1.3.3",
+    "prop-types": "^15.5.8",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.8",
     "react-dom": "^15.4.2",

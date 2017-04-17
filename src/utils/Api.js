@@ -62,7 +62,14 @@ class API {
 
         this[name] = getMethod;
         this[name].get = getMethod;
-        this[name].post = postMethod;
+
+        // server-json 处理post有问题，走mock时将post方法改为get
+        const isMock = process && process.env && process.env.SERVER_ENV === 'mock';
+        if (isMock) {
+            this[name].post = getMethod;
+        } else {
+            this[name].post = postMethod;
+        }
         return true;
     }
 }

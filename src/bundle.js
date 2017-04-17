@@ -2,7 +2,19 @@ import {
     Component,
 } from 'react';
 
+import PropTypes from 'prop-types';
+
 class Bundle extends Component {
+
+    static propTypes = {
+        load: PropTypes.func,
+        children: PropTypes.func,
+    }
+
+    static defaultProps = {
+        load: () => {},
+        children: () => {},
+    }
 
     constructor(props) {
         super(props);

@@ -2,9 +2,22 @@ import React, {
     Component,
 } from 'react';
 
+import PropTypes from 'prop-types';
+
 import './index.scss';
 
-export default class Chart extends Component {
+const propTypes = {
+    chartMsg: PropTypes.string,
+    changeChartMsg: PropTypes.func,
+};
+
+const defaultProps = {
+    chartMsg: '',
+    changeChartMsg: () => {},
+
+};
+
+class Chart extends Component {
     constructor(props) {
         super(props);
 
@@ -38,3 +51,8 @@ export default class Chart extends Component {
         );
     }
 }
+
+Chart.propTypes = propTypes;
+Chart.defaultProps = defaultProps;
+
+export default Chart;

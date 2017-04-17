@@ -5,6 +5,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 // 判断开发环境
 const NODE_ENV = process.env.NODE_ENV || 'development';
+const SERVER_ENV = process.env.SERVER_ENV || 'dev';
 console.log('当前运行环境：', NODE_ENV);
 
 // 公共css文件提取 , 只会将第一层的css文件抽取出来
@@ -98,7 +99,8 @@ export default {
         // env为production可以保证react、redux在生产环境调用生产代码
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify(NODE_ENV),
+                NODE_ENV: JSON.stringify(NODE_ENV),
+                SERVER_ENV: JSON.stringify(SERVER_ENV),
             },
         }),
     ],
