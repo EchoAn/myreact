@@ -4,8 +4,8 @@ import {
 } from '../actions/actionTypes';
 
 const initialState = {
-    loginFlag: false,
-    loginMsg: '',
+    loginErr: false,
+    errorMsg: '',
 };
 
 export default function login(state = initialState, action = {}) {
@@ -13,13 +13,13 @@ export default function login(state = initialState, action = {}) {
         case LOGINSUCESS:
             return {
                 ...state,
-                loginFlag: true,
+                loginErr: false,
             };
         case LOGINFAILURE:
             return {
                 ...state,
-                loginFlag: false,
-                loginMsg: action.msg,
+                loginErr: true,
+                errorMsg: action.msg,
             };
         default:
             return state;

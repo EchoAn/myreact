@@ -1,7 +1,6 @@
 import {
     ISFETCHING,
     ISFETCHED,
-    ISFETCHFAIL,
 } from '../actions/actionTypes';
 
 const initialState = {
@@ -20,12 +19,6 @@ export default function login(state = initialState, action = {}) {
             return {
                 ...state,
                 isFetching: false,
-            };
-        case ISFETCHFAIL:
-            return {
-                ...state,
-                isFetching: false,
-                reponseErrMsg: action.msg,
             };
         default:
             return state;

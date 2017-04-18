@@ -7,5 +7,4 @@ export const LOGINFAILURE = 'LOGINFAILURE'; // 登录失败
 
 // http 请求
 export const ISFETCHING = 'ISFETCHING'; // 请求中
-export const ISFETCHED = 'ISFETCHED'; // 请求成功
-export const ISFETCHFAIL = 'ISFETCHFAIL'; // 请求失败
+export const ISFETCHED = 'ISFETCHED'; // 请求结束

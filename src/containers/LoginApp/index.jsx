@@ -14,8 +14,9 @@ import PropTypes from 'prop-types';
 
 import './index.scss';
 import Login from '../../components/Login';
+import Model from '../../components/Model';
 
-import * as loginActions from '../../actions/loginActions';
+import loginActions from '../../actions/loginActions';
 
 @connect(
     state => ({
@@ -29,30 +30,47 @@ export default class LoginApp extends Component {
 
     static propTypes = {
         state: PropTypes.shape({
-            loginFlag: PropTypes.bool,
-            loginMsg: PropTypes.string,
+            loginErr: PropTypes.bool,
+            errorMsg: PropTypes.string,
             isFetching: PropTypes.bool,
-            reponseErrMsg: PropTypes.string,
         }),
         actions: PropTypes.shape({
-            loginSucess: PropTypes.func,
-            loginFailure: PropTypes.func,
             userLogin: PropTypes.func,
         }),
     }
 
     static defaultProps = {
         state: {
-            loginFlag: '',
-            loginMsg: '',
+            loginErr: false,
+            errorMsg: '',
             isFetching: false,
-            reponseErrMsg: '',
         },
         actions: PropTypes.shape({
-            loginSucess: () => {},
-            loginFailure: () => {},
             userLogin: () => {},
         }),
+    }
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            loginErrModelShow: false,
+        };
+        console.log(props.state);
+        this.loginErrOnclose = this.loginErrOnclose.bind(this);
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.state.loginErr === true) {
+            this.setState({
+                loginErrModelShow: true,
+            });
+        }
+    }
+
+    loginErrOnclose() {
+        this.setState({
+            loginErrModelShow: false,
+        });
     }
 
     render() {
@@ -61,6 +79,7 @@ export default class LoginApp extends Component {
             actions,
             history, // eslint-disable-line
         } = this.props;
+
         return (
             <div className="login">
                 <header className="login-title">
@@ -75,6 +94,9 @@ export default class LoginApp extends Component {
                     history={history}
                     {...actions}
                 />
+                <Model onClose={this.loginErrOnclose} visible={this.state.loginErrModelShow}>
+                    {state.errorMsg}
+                </Model>
             </div>
         );
     }

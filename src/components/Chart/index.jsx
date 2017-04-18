@@ -6,18 +6,18 @@ import PropTypes from 'prop-types';
 
 import './index.scss';
 
-const propTypes = {
-    chartMsg: PropTypes.string,
-    changeChartMsg: PropTypes.func,
-};
+export default class Chart extends Component {
+    static propTypes = {
+        chartMsg: PropTypes.string,
+        changeChartMsg: PropTypes.func,
+    }
 
-const defaultProps = {
-    chartMsg: '',
-    changeChartMsg: () => {},
+    static defaultProps = {
+        chartMsg: '',
+        changeChartMsg: () => {},
+    }
 
-};
 
-class Chart extends Component {
     constructor(props) {
         super(props);
 
@@ -51,8 +51,3 @@ class Chart extends Component {
         );
     }
 }
-
-Chart.propTypes = propTypes;
-Chart.defaultProps = defaultProps;
-
-export default Chart;
