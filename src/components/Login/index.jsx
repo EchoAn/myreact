@@ -7,12 +7,10 @@ import PropTypes from 'prop-types';
 export default class Login extends Component {
 
     static propTypes = {
-        isFetching: PropTypes.bool,
         userLogin: PropTypes.func,
     }
 
     static defaultProps = {
-        isFetching: false,
         userLogin: () => {},
     }
     constructor(props) {
@@ -35,7 +33,6 @@ export default class Login extends Component {
     }
 
     render() {
-        const { isFetching } = this.props;
         return (
             <div>
                 <div className="username">
@@ -56,9 +53,6 @@ export default class Login extends Component {
                 </div>
                 <div>
                     <button onClick={this.login}>Login</button>
-                </div>
-                <div>
-                    <span>{isFetching ? 'Loading...' : ''}</span>
                 </div>
             </div>
         );

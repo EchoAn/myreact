@@ -8,7 +8,7 @@ const initialState = {
     reponseErrMsg: '',
 };
 
-export default function login(state = initialState, action = {}) {
+export default function http(state = initialState, action = {}) {
     switch (action.type) {
         case ISFETCHING:
             return {

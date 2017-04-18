@@ -8,7 +8,7 @@ import {
 import {
     isFetching,
     isFetched,
-} from './httpActions';
+} from '../actions/httpActions';
 
 function loginSucess() {
     return {
@@ -26,7 +26,7 @@ function loginFailure(msg) {
 function userLogin(username, password, history) {
     return (dispatch) => {
         dispatch(isFetching());
-        return http.login.post()
+        http.login.post()
             .then((response) => {
                 dispatch(isFetched());
                 if (response.username === username && response.password === password) {

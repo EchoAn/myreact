@@ -10,6 +10,7 @@ import {
 import HomeApp from './HomeApp';
 import LoginApp from './LoginApp';
 import NotFound from './NotFound';
+import LoadingApp from './LoadingApp';
 
 /* eslint-disable */
 import loadChartApp from 'bundle-loader?lazy!../containers/ChartApp';
@@ -38,6 +39,7 @@ export default class RouterApp extends Component {
                         <Route component={NotFound} />
                     </Switch>
                 </Router>
+                <LoadingApp />
             </div>
         );
     }

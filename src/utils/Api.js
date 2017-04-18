@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch';
+
 import config from '../common/Config';
 import {
     stringify,
@@ -9,6 +10,17 @@ class API {
         this.options = options; // api通用设置
         this.baseUri = options.baseUri || config.apiHost; // 服务器地址
         this.urls = {}; // 保存所有注册url
+    }
+
+    static responseHandler(response, resolve, reject) {
+        if (response.ok) {
+            resolve(response.json());
+        } else {
+            reject(response);
+        }
+    }
+
+    static queryBeforeHander() {
     }
 
     regist(name, url, options = {}) {
@@ -24,22 +36,15 @@ class API {
 
         const fetchUrl = url.indexOf('//') >= 0 ? url : (this.baseUri + url);
 
-        const responseHandler = (response, resolve, reject) => {
-            if (response.ok) {
-                resolve(response.json());
-            } else {
-                reject(response);
-            }
-        };
-
         const getMethod = (runTimeOptions = {}) => {
             const promise = new Promise((resolve, reject) => {
+                API.queryBeforeHander();
                 const fetchOption = Object.assign({}, options, runTimeOptions, {
                     method: 'GET',
                 });
                 fetch(fetchUrl, fetchOption)
                     .then((response) => {
-                        responseHandler(response, resolve, reject);
+                        API.responseHandler(response, resolve, reject);
                     });
             });
             return promise;
@@ -48,13 +53,14 @@ class API {
         const postMethod = (parmas = {}, runTimeOptions = {}) => {
             const paramStr = stringify(parmas);
             const promise = new Promise((resolve, reject) => {
+                API.queryBeforeHander();
                 const fetchOption = Object.assign({}, options, runTimeOptions, {
                     method: 'POST',
                     body: paramStr,
                 });
                 fetch(fetchUrl, fetchOption)
                     .then((response) => {
-                        responseHandler(response, resolve, reject);
+                        API.responseHandler(response, resolve, reject);
                     });
             });
             return promise;

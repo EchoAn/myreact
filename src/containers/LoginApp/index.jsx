@@ -20,7 +20,7 @@ import loginActions from '../../actions/loginActions';
 
 @connect(
     state => ({
-        state: { ...state.login, ...state.http },
+        state: { ...state.login },
     }),
     dispatch => ({
         actions: bindActionCreators(loginActions, dispatch),
