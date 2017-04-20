@@ -6,7 +6,7 @@ import ReactDom from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import App from './containers/App';
 
-import './scss/common.css';
+import './scss/common.scss';
 
 const render = () => {
     ReactDom.render(
