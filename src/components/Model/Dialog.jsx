@@ -1,48 +1,57 @@
-import React, {
-    Component,
-} from 'react';
+import React from 'react';
 
 import {
     isNum,
 } from '../../utils/tools';
 
-export default class Rodal extends Component {
-    render() {
-        const { props } = this;
-        const className = `rodal-dialog rodal-${props.animation}-${props.animationType}`;
-        const CloseButton = props.showCloseButton ?
-            <span // eslint-disable-line
-                className="rodal-close"
-                onClick={props.onClose}
-            />
-        : null;
+/**
+ * These components are not only succinct,
+ * but may in the future be more performant than components defined in other ways.
+ */
+const Dialog = (props) => {
+    const configs = props;
+    const {
+        duration,
+        customStyles,
+        animation,
+        animationType,
+        showCloseButton,
+        onClose,
+    } = configs;
+    const className = `rodal-dialog rodal-${animation}-${animationType}`;
 
-        const { duration, customStyles } = props;
+    const CloseButton = showCloseButton ?
+        <span // eslint-disable-line
+            className="rodal-close"
+            onClick={onClose}
+        />
+    : null;
 
-        let { width, height } = props;
+    let { width, height } = configs;
 
-        if (isNum(width)) {
-            width += 'px';
-        }
-
-        if (isNum(height)) {
-            height += 'px';
-        }
-
-        const style = {
-            width,
-            height,
-            animationDuration: `${duration}ms`,
-            WebkitAnimationDuration: `${duration}ms`,
-        };
-
-        const mergedStyles = Object.assign(style, customStyles);
-
-        return (
-            <div style={mergedStyles} className={className}>
-                {CloseButton}
-                {props.children}
-            </div>
-        );
+    if (isNum(width)) {
+        width += 'px';
     }
-}
+
+    if (isNum(height)) {
+        height += 'px';
+    }
+
+    const style = {
+        width,
+        height,
+        animationDuration: `${duration}ms`,
+        WebkitAnimationDuration: `${duration}ms`,
+    };
+
+    const mergedStyles = Object.assign(style, customStyles);
+
+    return (
+        <div style={mergedStyles} className={className}>
+            {CloseButton}
+            {configs.children}
+        </div>
+    );
+};
+
+export default Dialog;

@@ -24,7 +24,8 @@ class Rodal extends Component {
         visible: PropTypes.bool, // 是否显示
         showMask: PropTypes.bool, // 是否显示遮罩
         showCloseButton: PropTypes.bool, // 是否显示关闭按钮
-        animation: PropTypes.string, // 动画类型[zoom, fade, flip, door, rotate, slideUp, slideDown, slideLeft, slideRight]
+        animation: PropTypes.oneOf(['zoom', 'fade', 'flip', 'door',
+            'rotate', 'slideUp', 'slideDown', 'slideLeft', 'slideRight']),  // 动画类型[zoom, fade, flip, door, rotate, slideUp, slideDown, slideLeft, slideRight]
         duration: PropTypes.number, // 动画持续时间
         className: PropTypes.string, // 弹窗class
         customStyles: PropTypes.object, // 弹窗css样式
