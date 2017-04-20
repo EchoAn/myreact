@@ -1,0 +1,8 @@
+@mixin webpbgImg($url) {
+    background-image: url($url);
+    @at-root(with: all) .webps & {
+        background-image: url($url);
+    }
+}
+
+
